@@ -1,40 +1,122 @@
-body{
-    margin: 0;
-    justify-content: center;
-    font-family: cursive;
-    background-color: slateblue;
-    height: 100vh;
-    align-items: center;
-   display: flex;
+body {
+  margin: 0;
+  justify-content: center;
+  font-family: cursive;
+  background-color: slateblue;
+  height: 100vh;
+  align-items: center;
+  display: flex;
 }
-.main{
-    background-color: white;
-    width: 300px;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
+.main {
+  background-color: white;
+  width: 100%;
+  max-width: 800px; /* Significantly increased max-width */
+  min-width: 450px; /* Further increased min-width */
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
-.month-name{
-    color: white;
-    background-color: orangered;
-    padding: 12px;
-    font-size: 30px;
-    font-weight: bold;
-    margin: 0;
+.month-name {
+  color: lime; /* High-contrast color for debugging */
+  background-color: purple; /* High-contrast background for debugging */
+  padding: 15px 20px; /* Increased padding */
+  font-size: 30px; /* Reset font-size to original for clarity */
+  font-weight: bold;
+  margin: 0;
+  white-space: normal; /* Ensure text wraps */
+  line-height: 1.2; /* Set explicit line-height */
 }
-.day-name{
-    font-size: 20px;
-    color: darkgrey;
+.day-name {
+  font-size: 20px;
+  color: darkgrey;
 }
-.day-number{
-    font-size: 90px;
-    font-weight: bold;
-    margin: 0;
+.day-number {
+  font-size: 90px;
+  font-weight: bold;
+  margin: 0;
 }
-.year{
-    margin: 20px 0;
-    font-size: 20px;
-    color: darkgray;
-    font-weight: 500;
+.year {
+  margin: 20px 0;
+  font-size: 20px;
+  color: darkgray;
+  font-weight: 500;
+}
+
+.calendar-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  padding: 10px;
+}
+
+.week-days {
+  font-weight: bold;
+  background-color: #f0f0f0;
+  padding: 8px 0;
+  text-align: center;
+}
+
+.day {
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+.day.empty {
+  background-color: #e0e0e0;
+  cursor: default;
+}
+
+.day.today {
+  background-color: orangered;
+  color: white;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main {
+    width: 90%;
+  }
+
+  .month-name {
+    font-size: 24px; /* Adjusted for smaller screens */
+  }
+
+  .day-number {
+    font-size: 70px;
+  }
+
+  .day,
+  .week-days {
+    padding: 8px 0;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    width: 95%;
+  }
+
+  .month-name {
+    font-size: 20px; /* Adjusted for smallest screens */
+  }
+
+  .day-number {
+    font-size: 60px;
+  }
+
+  .day,
+  .week-days {
+    padding: 6px 0;
+    font-size: 12px;
+  }
+
+  .calendar-container {
+    gap: 3px;
+    padding: 5px;
+  }
 }
